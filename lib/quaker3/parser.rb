@@ -1,14 +1,15 @@
+# frozen_string_literal: true
+
 require 'securerandom'
 
 module Quaker3
-
   class Parser
     attr_reader :games
 
-    REGEX_COMMAND = /^.{0,7}([a-z A-Z][^:]*)/
-    COMMAND_INIT_GAME = "initgame"
-    COMMAND_SHUTDOWN = "shutdowngame"
-    COMMAND_KILL = "kill"
+    REGEX_COMMAND = /^.{0,7}([a-z A-Z][^:]*)/.freeze
+    COMMAND_INIT_GAME = 'initgame'
+    COMMAND_SHUTDOWN = 'shutdowngame'
+    COMMAND_KILL = 'kill'
 
     def initialize(file)
       @games = []
@@ -57,5 +58,4 @@ module Quaker3
       @current_game.kills.push(Quaker3::Kill.new(line))
     end
   end
-
 end

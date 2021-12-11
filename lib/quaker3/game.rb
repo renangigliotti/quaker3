@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Quaker3
   class Game
     attr_accessor :id, :kills
@@ -10,26 +12,26 @@ module Quaker3
 
     def to_h
       {
-        "id" => @id,
-        "total_kills" => @kills.length,
-        "kills" => @kills.map { |kill| kill.to_h }
+        'id' => @id,
+        'total_kills' => @kills.length,
+        'kills' => @kills.map(&:to_h)
       }
     end
 
     def to_h_grouped
       {
-        "id" => @id,
-        "total_kills" => @kills.length,
-        "players" => players,
-        "score" => score.sort { |a, b| b[:score] <=> a[:score] }
+        'id' => @id,
+        'total_kills' => @kills.length,
+        'players' => players,
+        'score' => score.sort { |a, b| b[:score] <=> a[:score] }
       }
     end
 
     def to_h_grouped_by_mode
       {
-        "id" => @id,
-        "total_kills" => @kills.length,
-        "modes": modes
+        'id' => @id,
+        'total_kills' => @kills.length,
+        modes: modes
       }
     end
 
@@ -42,21 +44,21 @@ module Quaker3
     end
 
     def score
-      players.map { |p|
+      players.map do |p|
         {
-          "name" => p,
-          "score" => kills.filter { |kill| kill.killer == p }.map { |kill| kill.killer == KILLER_WORLD ? -1 : 1 }.sum
+          'name' => p,
+          'score' => kills.filter { |kill| kill.killer == p }.map { |kill| kill.killer == KILLER_WORLD ? -1 : 1 }.sum
         }
-      }
+      end
     end
 
     def modes
-      @kills.map { |kill| kill.mode }.uniq.map { |mode|
+      @kills.map(&:mode).uniq.map do |mode|
         {
-          "mode" => mode,
-          "total_kills" => kills.filter { |kill| kill.mode.eql? mode }.length
+          'mode' => mode,
+          'total_kills' => kills.filter { |kill| kill.mode.eql? mode }.length
         }
-      }
+      end
     end
   end
 end

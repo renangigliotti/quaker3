@@ -6,7 +6,27 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    ast (2.4.2)
+    parallel (1.21.0)
+    parser (3.0.3.2)
+      ast (~> 2.4.1)
+    rainbow (3.0.0)
     rake (13.0.6)
+    regexp_parser (2.2.0)
+    rexml (3.2.5)
+    rubocop (0.93.1)
+      parallel (~> 1.10)
+      parser (>= 2.7.1.5)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.8)
+      rexml
+      rubocop-ast (>= 0.6.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 1.4.0, < 2.0)
+    rubocop-ast (1.14.0)
+      parser (>= 3.0.1.1)
+    ruby-progressbar (1.11.0)
+    unicode-display_width (1.8.0)
 
 PLATFORMS
   x86_64-linux
@@ -14,6 +34,7 @@ PLATFORMS
 DEPENDENCIES
   quaker3!
   rake (~> 13.0)
+  rubocop (~> 0.61)
 
 BUNDLED WITH
    2.2.33

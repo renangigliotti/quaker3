@@ -1,8 +1,8 @@
+# frozen_string_literal: true
+
 module Quaker3
   class Kill
-    attr_reader :killer
-    attr_reader :killed
-    attr_reader :mode
+    attr_reader :killer, :killed, :mode
 
     REGEX_KILL_DATA = /(?<=Kill:).*/.freeze
     REGEX_KILLER = /(.*)(?=killed)/.freeze
@@ -15,9 +15,9 @@ module Quaker3
 
     def to_h
       {
-        "killer" => @killer,
-        "killed" => @killed,
-        "mode" => @mode
+        'killer' => @killer,
+        'killed' => @killed,
+        'mode' => @mode
       }
     end
 
