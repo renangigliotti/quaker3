@@ -22,9 +22,12 @@ Or install it yourself as:
 
 To parser a Quake 3 Arena Server log file, use:
 
-    $ Quaker3::new.parse(*file_path*)
+    $ Quaker3::Parser.new *file_path*
 
-This method return a list of games.
+This method return a list of Game model.
+To get a hash from games you need call .to_h 
+
+    Quaker3::Game.to_h
 
     {
         "id" => "81f055b5-678c-4463-a21e-c74699073d7b",
@@ -48,13 +51,11 @@ This method return a list of games.
         ]
     }
 
-The model Game have a method to print a grouped information of match
+The Game model have a method to generate a hash into grouped information of match
 
-    quaker3 = Quaker3::new
-    games = quaker3.parse(*file_path*)
-    games.each { |game| game.print }
+    Quaker3::Game.to_h_grouped
 
-    result:
+The result:
 
     {
         "id" => "81f055b5-678c-4463-a21e-c74699073d7b",
@@ -72,13 +73,11 @@ The model Game have a method to print a grouped information of match
         ]
     }
 
-To print a report by death cause, use:
+The Game model have a method to generate a hash into grouped information by death cause of match
 
-    quaker3 = Quaker3::new
-    games = quaker3.parse(*file_path*)
-    games.each { |game| game.print_by_death_cause }
+    Quaker3::Game.to_h_grouped_by_mode
 
-    result:
+The result:
 
     {
         "id" => "81f055b5-678c-4463-a21e-c74699073d7b",

@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 require_relative "quaker3/version"
-
-module Quaker3
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require_relative "quaker3/parser"
+require_relative "quaker3/game"
+require_relative "quaker3/kill"
