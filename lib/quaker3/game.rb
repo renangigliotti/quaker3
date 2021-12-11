@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module Quaker3
+  # Represents the Game model extract from Quake 3 Arena log file
+  # @author Renan Gigliotti
   class Game
     attr_accessor :id, :kills
 
@@ -10,6 +12,8 @@ module Quaker3
       @kills = []
     end
 
+    # Generate a hash that represent's a Game model
+    # @return [Hash] from game
     def to_h
       {
         'id' => @id,
@@ -18,6 +22,8 @@ module Quaker3
       }
     end
 
+    # Generate a hash that represent's a Game grouped statistics
+    # @return [Hash] from game grouped statistics
     def to_h_grouped
       {
         'id' => @id,
@@ -27,6 +33,8 @@ module Quaker3
       }
     end
 
+    # Generate a hash that represent's a Game grouped by kill mode
+    # @return [Hash] from game grouped by kill mode
     def to_h_grouped_by_mode
       {
         'id' => @id,

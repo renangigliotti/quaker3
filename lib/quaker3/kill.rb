@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module Quaker3
+  # Represents the Kill model extract from Quake 3 Arena log file
+  # @author Renan Gigliotti
   class Kill
     attr_reader :killer, :killed, :mode
 
@@ -13,6 +15,8 @@ module Quaker3
       parse! line
     end
 
+    # Generate a hash that represent's a Kill model
+    # @return [Hash] from kill
     def to_h
       {
         'killer' => @killer,

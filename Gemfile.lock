@@ -27,6 +27,9 @@ GEM
       parser (>= 3.0.1.1)
     ruby-progressbar (1.11.0)
     unicode-display_width (1.8.0)
+    webrick (1.7.0)
+    yard (0.9.27)
+      webrick (~> 1.7.0)
 
 PLATFORMS
   x86_64-linux
@@ -35,6 +38,7 @@ DEPENDENCIES
   quaker3!
   rake (~> 13.0)
   rubocop (~> 0.61)
+  yard
 
 BUNDLED WITH
    2.2.33
