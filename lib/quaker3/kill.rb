@@ -11,6 +11,8 @@ module Quaker3
     REGEX_KILLED = /(?<=killed)(.*)(?=by)/.freeze
     REGEX_KILL_MODE = /(?<=by).*/.freeze
 
+    DEFAULT_NAME = '(player)'
+
     def initialize(line)
       parse! line
     end
@@ -30,9 +32,13 @@ module Quaker3
     def parse!(line)
       data = line[REGEX_KILL_DATA].strip.split(':')[1].strip
 
-      @killer = data[REGEX_KILLER].strip
-      @killed = data[REGEX_KILLED].strip
+      @killer = parse_name(data[REGEX_KILLER].strip)
+      @killed = parse_name(data[REGEX_KILLED].strip)
       @mode = data[REGEX_KILL_MODE].strip
+    end
+
+    def parse_name(name)
+      name.nil? || name.empty? ? DEFAULT_NAME : name
     end
   end
 end

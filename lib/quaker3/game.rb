@@ -39,7 +39,7 @@ module Quaker3
       {
         'id' => @id,
         'total_kills' => @kills.length,
-        modes: modes
+        'modes' => modes
       }
     end
 
@@ -52,10 +52,10 @@ module Quaker3
     end
 
     def score
-      players.map do |p|
+      players.map do |player|
         {
-          'name' => p,
-          'score' => kills.filter { |kill| kill.killer == p }.map { |kill| kill.killer == KILLER_WORLD ? -1 : 1 }.sum
+          'name' => player,
+          'score' => kills_by_player(player).map { |kill| kill.killer == KILLER_WORLD ? -1 : 1 }.sum
         }
       end
     end
@@ -66,6 +66,12 @@ module Quaker3
           'mode' => mode,
           'total_kills' => kills.filter { |kill| kill.mode.eql? mode }.length
         }
+      end
+    end
+
+    def kills_by_player(player)
+      kills.filter do |kill|
+        kill.killer.eql?(player) && !kill.killer.eql?(kill.killed)
       end
     end
   end

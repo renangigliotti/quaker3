@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = 'https://github.com/renangigliotti/quaker3'
   spec.metadata['changelog_uri'] = 'https://github.com/renangigliotti/quaker3/CHANGELOG.md'
-  spec.metadata['bug_tracker_uri'] = 'https://github.com/renangigliotti/quaker3//issues'
+  spec.metadata['bug_tracker_uri'] = 'https://github.com/renangigliotti/quaker3/issues'
   spec.metadata['documentation_uri'] = 'https://rubydoc.info/gems/quaker3'
 
   # Specify which files should be added to the gem when it is released.
@@ -33,9 +33,11 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
+  spec.add_development_dependency 'minitest', '~> 5.0'
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rubocop', '~> 0.61'
   spec.add_development_dependency 'yard'
+
   spec.metadata = {
     'rubygems_mfa_required' => 'true'
   }

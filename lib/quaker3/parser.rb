@@ -16,17 +16,17 @@ module Quaker3
     COMMAND_KILL = 'kill'
 
     # Initialize method to generate a list of games from Quake 3 Arena Server log file
-    # @param file [String] the path of file
-    def initialize(file)
+    # @param file_path [String] the path of file
+    def initialize(file_path)
       @games = []
       @current_game = nil
-      process file
+      process file_path
     end
 
     private
 
-    def process(file)
-      File.foreach file do |line|
+    def process(file_path)
+      File.foreach file_path do |line|
         command = extract_command line
         parse command, line
       end
