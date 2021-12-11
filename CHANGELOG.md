@@ -1,5 +1,3 @@
-## [Unreleased]
-
 ## [0.1.0] - 2021-12-11
 
-- Initial release
+- Create Quake 3 Arena Server 
