@@ -1,5 +1,7 @@
 # Quaker3
 
+[![Gem Version](https://badge.fury.io/rb/quaker3.svg)](https://badge.fury.io/rb/quaker3)
+
 The gem Quaker3 help you to parser Quake 3 Arena Server log file into list of games to extract statistics.
 
 ## Installation

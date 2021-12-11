@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
   spec.metadata['changelog_uri'] = 'https://github.com/renangigliotti/quaker3/CHANGELOG.md'
   spec.metadata['bug_tracker_uri'] = 'https://github.com/renangigliotti/quaker3/issues'
   spec.metadata['documentation_uri'] = 'https://rubydoc.info/gems/quaker3'
+  spec.metadata['rubygems_mfa_required'] = 'true'
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
